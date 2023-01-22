@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box } from "@mui/material";
+import React from "react";
+import CardDetails from "./components/CardDetail";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box m={5} sx={{display: 'flex', flexDirection: "column", gap:'15px'}}>
+      <CardDetails />
+      <CardDetails />
+      <CardDetails />
+      <Stack alignItems={'center'}>
+        <Pagination
+          count={4}
+          shape="rounded"
+          sx={{
+            '.Mui-selected': {
+              backgroundColor: '#f44336'
+            }
+          }}
+        />
+      </Stack>
+    </Box>
   );
 }
 
