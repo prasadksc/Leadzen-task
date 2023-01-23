@@ -5,7 +5,7 @@ import { Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { Box } from "@mui/material";
 
-const ViewDetails = () => {
+const ViewDetails = ({name, phone, email, address}) => {
   return (
     <Box marginLeft={5}>
       <Card
@@ -44,24 +44,24 @@ const ViewDetails = () => {
               <Typography sx={{ fontWeight: "bold" }}>
                 Contact Person
               </Typography>
-              <Typography>Swapnil Warng</Typography>
+              <Typography>{name}</Typography>
               <Typography sx={{ fontWeight: "bold" }}>Designation</Typography>
               <Typography>Proprietor</Typography>
               <Typography sx={{ fontWeight: "bold" }}>Emails</Typography>
-              <Typography>helloservices1@gmail.com</Typography>
+              <Typography>{email}</Typography>
               <Typography sx={{ fontWeight: "bold" }}>Phones</Typography>
-              <Typography>9712500500</Typography>
+              <Typography>{phone}</Typography>
             </Stack>
             <Stack sx={{ gap: "5px" }}>
               <Typography sx={{ fontWeight: "bold" }}>Address</Typography>
               <Typography>
-                15 Kasmani Shopping Centre Unn Surat Gujarat 395003
+                {`${address.suite} ${address.street} ${address.city} ${address.zipcode}`}
               </Typography>
               <Typography sx={{ fontWeight: "bold" }}>City</Typography>
 
-              <Typography>Mumbai</Typography>
+              <Typography>{address.street}</Typography>
               <Typography sx={{ fontWeight: "bold" }}>State</Typography>
-              <Typography>Maharastra</Typography>
+              <Typography>{address.city}</Typography>
               <Typography sx={{ fontWeight: "bold" }}>Country</Typography>
               <Typography>India</Typography>
             </Stack>

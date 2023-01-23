@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import { Stack } from "@mui/system";
 import ViewDetails from "./ViewDetails";
 
-const CardDetails = () => {
+const CardDetails = ({name, address, phone, email, company}) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -28,18 +28,18 @@ const CardDetails = () => {
           height: '200px'
         }}
       >
-        <Typography sx={{marginLeft: '40px'}}>Hellomet</Typography>
+        <Typography sx={{marginLeft: '40px'}}>{company.name}</Typography>
         <Stack sx={{ gap: "20px" }}>
           <Typography sx={{ fontWeight: "bold" }}>CONTACT</Typography>
-          <Typography>Swapnil Warng</Typography>
+          <Typography>{name}</Typography>
         </Stack>
         <Stack sx={{ gap: "20px" }}>
           <Typography sx={{ fontWeight: "bold" }}>CITY</Typography>
-          <Typography>Mumbai</Typography>
+          <Typography>{address.street}</Typography>
         </Stack>
         <Stack sx={{ gap: "20px" }}>
           <Typography sx={{ fontWeight: "bold" }}>STATE</Typography>
-          <Typography>Maharastra</Typography>
+          <Typography>{address.city}</Typography>
         </Stack>
 
         { open ? <Button
@@ -57,7 +57,7 @@ const CardDetails = () => {
           View Details
         </Button>}
       </CardContent>
-      {open && <ViewDetails/>}
+      {open && <ViewDetails name={name} phone={phone} email={email} address={address}/>}
     </Card>
   );
 };
